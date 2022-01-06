@@ -1,30 +1,22 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./styles.css";
 
 export default function App() {
-  const inputRef = useRef();
-  const divRef = useRef();
+  const [, setDummy] = useState({});
+  const value = useRef(0);
 
-  const onFocusButton = () => {
-    inputRef.current.focus();
+  console.log(value);
+
+  const onIncrease = () => {
+    setDummy({});
+    value.current += 1;
   };
 
-  const onDivBorder = () => {
-    divRef.current.style.border = "5px solid black";
-    divRef.current.style.backgroundColor = "blue";
-    divRef.current.style.color = "white";
-  };
-
-  useEffect(() => {
-    console.log(inputRef.current);
-  });
   return (
-    <div ref={divRef} className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-      <input ref={inputRef} placeholder="Buraya yazılır" />
-      <button onClick={onFocusButton}>Input'a Focus ol</button>
-      <button onClick={onDivBorder}>Div'e border ekle</button>
+    <div className="App">
+      <h1>Hello Khan</h1>
+      <h2>Start your React future!</h2>
+      <button onClick={onIncrease}>Increase Ref value</button>
     </div>
   );
 }
